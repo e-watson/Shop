@@ -1,0 +1,22 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Articles>
+	<Article Id="1" Name="A1" Description="A1 Description" Image="A1.jpg" Price="1.2" />
+	<Article Id="2" Name="A2" Description="A2 Description" Image="A2.jpg" Price="2.3" />
+	<Article Id="3" Name="A3" Description="A3 Description" Image="A3.jpg" Price="3.4" />
+	<Article Id="4" Name="A4" Description="A4 Description" Image="A4.jpg" Price="4.5" />
+	<Article Id="5" Name="A5" Description="A5 Description" Image="A5.jpg" Price="5.6" />
+	<Article Id="6" Name="B1" Description="B1 Description" Image="B1.jpg" Price="6.7" />
+	<Article Id="7" Name="B2" Description="B2 Description" Image="B2.jpg" Price="7.8" />
+	<Article Id="8" Name="B3" Description="B3 Description" Image="B3.jpg" Price="8.9" />
+	<Article Id="9" Name="B4" Description="B4 Description" Image="B4.jpg" Price="9.5" />
+	<Article Id="10" Name="B5" Description="B5 Description" Image="B5.jpg" Price="10.1" />
+	<Article Id="11" Name="C1" Description="C1 Description" Image="C1.jpg" Price="11.2" />
+	<Article Id="12" Name="C2" Description="C2 Description" Image="C2.jpg" Price="12.3" />
+	<Article Id="13" Name="C3" Description="C3 Description" Image="C3.jpg" Price="13.4" />
+	<Article Id="14" Name="C4" Description="C4 Description" Image="C4.jpg" Price="14.5" />
+	<Article Id="15" Name="C5" Description="C5 Description" Image="C5.jpg" Price="15.6" />
+	<Article Id="16" Name="D1" Description="D1 Description" Image="D1.jpg" Price="16.3" />
+	<Article Id="17" Name="D2" Description="D2 Description" Image="D2.jpg" Price="17.4" />
+	<Article Id="18" Name="D3" Description="D3 Description" Image="D3.jpg" Price="18.5" />
+	<Article Id="19" Name="D4" Description="D4 Description" Image="D4.jpg" Price="19.6" />
+</Articles>

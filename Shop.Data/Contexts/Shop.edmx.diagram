@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="2cdb2eda553d45e6a1f7682c665ff859" Name="Diagram1">
+        <EntityTypeShape EntityType="Shop.Data.Contexts.CustomerOrder" Width="1.5" PointX="3" PointY="2.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="Shop.Data.Contexts.Customer" Width="1.5" PointX="0.875" PointY="4" IsExpanded="true" />
+        <EntityTypeShape EntityType="Shop.Data.Contexts.OrderLine" Width="1.5" PointX="3" PointY="5.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="Shop.Data.Contexts.Order" Width="1.5" PointX="5.5" PointY="2.375" IsExpanded="true" />
+        <AssociationConnector Association="Shop.Data.Contexts.FK_CustomerOrders_Customers" ManuallyRouted="false" />
+        <AssociationConnector Association="Shop.Data.Contexts.FK_CustomerOrders_Orders" ManuallyRouted="false" />
+        <AssociationConnector Association="Shop.Data.Contexts.FK_OrderLines_Orders" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

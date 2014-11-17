@@ -1,0 +1,125 @@
+﻿
+@{
+	ViewBag.Title = "Articles";
+}
+
+<script src="~/Scripts/utils.js"></script>
+<script src="~/Scripts/app/controllers/articles.controller.js"></script>
+<script src="~/Scripts/app/controllers/details.dialog.controller.js"></script>
+<script src="~/Scripts/app/controllers/basket.dialog.controller.js"></script>
+<script src="~/Scripts/app/services/sd.basket.service.js"></script>
+<script src="~/Scripts/app/models/page.config.js"></script>
+<script src="~/Scripts/app/models/basket.js"></script>
+<script src="~/Scripts/app/models/basket.item.js"></script>
+<script src="~/Scripts/app/models/basket.info.js"></script>
+<script src="~/Scripts/app/models/basket.details.js"></script>
+<script src="~/Scripts/app/models/basket.detail.line.js"></script>
+
+<div ng-app="articles">
+	<div ng-controller="articlesController">
+		<div class="row">
+			<div class="col-md-2" style="vertical-align: central;">
+				<select class="form-control" ng-model="pageConfigModel"
+						ng-options="page.title for page in pageConfig"
+						ng-change="pageConfigModelChanged()"></select>
+			</div>
+			<div class="col-md-8">
+				<pagination style="margin: 0 !important;" total-items="articlesTotal"
+							ng-model="currentPage"
+							items-per-page="pageConfigModel.pageSize"
+							direction-links="false" boundary-links="true"
+							ng-change="pageChanged()"></pagination>
+			</div>
+			<div class="col-md-2">
+				<a href="" title="Show basket details" ng-click="showBasket()">
+					<span class="glyphicon glyphicon-shopping-cart" style="margin: 0 !important;"></span>
+					Articles: {{basketInfo.quantitySum}} | &euro;&nbsp;{{basketInfo.priceSum}}
+				</a>
+			</div>
+		</div>
+		<div class="row" ng-repeat="lineItem in articlesModel">
+			<div class="col-md-2" ng-repeat="item in lineItem">
+				<div style="padding: 20px;">
+					<div>
+						<a href="" data-ng-click="articleDetails(item.Id)">
+							<img class="list-view"
+								 ng-src="{{ROOT_URL + item.Image}}"
+								 alt="item.Name" />
+						</a>
+					</div>
+					<div>
+						{{item.Name}}
+					</div>
+					<div style="font-weight: bold;">
+						&euro; {{item.Price}}
+					</div>
+				</div>
+			</div>
+			<div class="col-md-2"></div>
+		</div>
+	</div>
+
+	<script type="text/ng-template" id="articleDialogContent.html">
+		<div class="modal-header">
+			<h4 class="modal-title">Article details</h4>
+		</div>
+		<div class="modal-body">
+			<h4>{{articleDetails.Name}}</h4>
+			<img class="details-view" ng-src="{{ROOT_URL + articleDetails.Image}}" />
+			<div>{{articleDetails.Description}}</div>
+			<div>
+				<span style="font-weight: bold;">
+					&euro; {{articleDetails.Price}}
+				</span> (Excl. VAT)
+			</div>
+			<br />
+			<div>
+				Quantity&nbsp;
+				<input class="quantity" type="text" maxlength="2" ng-model="quantity" />
+			</div>
+		</div>
+		<div class="modal-footer">
+			<button class="btn btn-primary" ng-click="addToBasket()">Add to basket</button>
+			<button class="btn btn-warning" ng-click="cancel()">Cancel</button>
+		</div>
+	</script>
+
+	<script type="text/ng-template" id="basketDialogContent.html">
+		<div class="modal-header">
+			<h4 class="modal-title">Basket</h4>
+		</div>
+		<div class="modal-body">
+			<table class="table">
+				<thead>
+					<tr>
+						<th>Name</th>
+						<th>Quantity</th>
+						<th>Total price</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr ng-repeat="d in basketDetails.lines">
+						<td>{{d.name}}</td>
+						<td>{{d.quantity}}</td>
+						<td>&euro;&nbsp;{{d.totalPrice}}</td>
+					</tr>
+					<tr>
+						<td></td>
+						<td></td>
+						<td>
+							<span style="font-weight: bold;">Total (Excl. VAT):&nbsp;&euro;&nbsp;{{basketDetails.total}}</span>
+						</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+		<div class="modal-footer">
+			<button class="btn btn-primary" ng-click="checkout()">Checkout</button>
+			<button class="btn btn-warning" ng-click="continueShoping()">Continue shoping</button>
+		</div>
+	</script>
+</div>
+
+<script type="text/javascript">
+	var checkoutLocation = "@Url.Action("Checkout")";
+</script>
